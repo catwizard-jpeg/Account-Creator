@@ -18,20 +18,19 @@ def calculateYearGroup(username):
     #this subroutine will calculate the year group
     #that the student is in based on their username
     
-    userNumber = username[0:2]
-    if userNumber == "24":
-        yearGroup = "Year 7"
-    elif userNumber == "23":
-        yearGroup = "Year 8"
-    elif userNumber == "22":
-        yearGroup = "Year 9"
-    elif userNumber == "21":
-        yearGroup = "Year 10"
-    elif userNumber == "20":
-        yearGroup = "Year 11"
-    elif userNumber == "19":
-        yearGroup = "Year 12"
-    return yearGroup
+     userNumber = username[0:2]
+     yearGroups = {
+         "24": "Year 7",
+         "23": "Year 8",
+         "22": "Year 9",
+         "21": "Year 10",
+         "20": "Year 11",
+         "19": "Year 12",
+         "18": "Year 13"
+     }
+     yearGroup = yearGroups.get(userNumber, "Unknown") #if the userNumber is not in the dictionary, return "Unknown"
+     
+     return yearGroup
 
 def getPassword(username):
     #this subroutine will ask the user to enter a password 
@@ -74,4 +73,4 @@ def menu():
     yearGroup = calculateYearGroup(username)
     password = getPassword(username)
     
-#menu()
+menu()
